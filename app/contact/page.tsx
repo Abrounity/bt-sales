@@ -47,7 +47,7 @@ function ContactContent() {
   };
 
   return (
-    <div className="container" style={{ padding: '40px 0 80px' }}>
+    <div className="container page-shell">
       {/* Header */}
       <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 40px' }}>
         <h1 style={{ fontSize: '32px', fontWeight: 800, marginBottom: '8px' }}>
@@ -59,7 +59,7 @@ function ContactContent() {
         </p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '40px' }}>
+      <div className="contact-page-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '40px' }}>
         {/* Left Column: Store Details & Map */}
         <div>
           <div style={{ background: 'var(--color-light-bg)', padding: '32px', borderRadius: '16px', border: '1px solid var(--color-border)', marginBottom: '24px' }}>
@@ -160,7 +160,7 @@ function ContactContent() {
                 />
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <div className="contact-form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                 <div>
                   <label style={{ display: 'block', fontSize: '12px', fontWeight: 600, marginBottom: '4px' }}>Phone Number *</label>
                   <input
@@ -221,7 +221,7 @@ function ContactContent() {
 
 export default function ContactPage() {
   return (
-    <Suspense fallback={<div className="container" style={{ padding: '60px 0', textAlign: 'center' }}>Loading Contact Page...</div>}>
+    <Suspense fallback={<div className="container loading-state">Loading Contact Page...</div>}>
       <ContactContent />
     </Suspense>
   );

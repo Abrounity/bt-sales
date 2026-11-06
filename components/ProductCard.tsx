@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { Product } from '@/data/products';
-import { useCart } from '@/context/CartContext';
 
 interface ProductCardProps {
   product: Product;
@@ -10,7 +9,8 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product, onOpenDetails }: ProductCardProps) {
-  const { addToCart } = useCart();
+  const whatsappMessage = `Hi, I'm interested in ${product.title} listed at ₹${product.price.toLocaleString('en-IN')}.`;
+  const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
     <div className="product-card">
@@ -51,46 +51,28 @@ export default function ProductCard({ product, onOpenDetails }: ProductCardProps
         </div>
 
         <div className="product-bottom">
-          <div className="price-container">
-            {product.originalPrice > product.price && (
-              <span className="price-original">
-                ₹{product.originalPrice.toLocaleString('en-IN')}
+          <div className="product-price-actions">
+            <div className="price-container">
+              {product.originalPrice > product.price && (
+                <span className="price-original">
+                  ₹{product.originalPrice.toLocaleString('en-IN')}
+                </span>
+              )}
+              <span className="price-current">
+                ₹{product.price.toLocaleString('en-IN')}
               </span>
-            )}
-            <span className="price-current">
-              ₹{product.price.toLocaleString('en-IN')}
-            </span>
-          </div>
-
-          <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-            <button
-              className="quick-view-btn"
-              onClick={() => onOpenDetails(product)}
-              title="Quick Details"
-              aria-label="Quick Details"
-              style={{
-                background: 'none',
-                border: '1px solid var(--color-border)',
-                borderRadius: '50%',
-                width: '36px',
-                height: '36px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: 'var(--text-secondary)',
-                cursor: 'pointer'
-              }}
+            </div>
+            <a
+              className="product-whatsapp-btn"
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Ask about ${product.title} on WhatsApp`}
+              title="Ask about this product on WhatsApp"
             >
-              <i className="fa-solid fa-eye"></i>
-            </button>
-            <button
-              className="add-to-cart-circle"
-              onClick={() => addToCart(product)}
-              title="Add to Cart"
-              aria-label="Add to Cart"
-            >
-              <i className="fa-solid fa-plus"></i>
-            </button>
+              <i className="fa-brands fa-whatsapp" aria-hidden="true"></i>
+              <span>WhatsApp</span>
+            </a>
           </div>
         </div>
       </div>

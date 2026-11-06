@@ -45,40 +45,27 @@ export default function Footer() {
               <li><Link href="/">Home</Link></li>
               <li><Link href="/shop">Shop Catalog</Link></li>
               <li><Link href="/shop?brand=Apple">Brand Store</Link></li>
-              <li><Link href="/services">Services & Repairs</Link></li>
               <li><Link href="/contact">About Our Store</Link></li>
             </ul>
           </div>
 
-          {/* Col 3: Categories */}
-          <div className="footer-col">
-            <h3>Categories</h3>
-            <ul className="footer-links">
-              <li><Link href="/shop?category=phones">Smartphones & Tablets</Link></li>
-              <li><Link href="/shop?category=appliances">Smart Televisions</Link></li>
-              <li><Link href="/shop?category=appliances">Inverter Refrigerators</Link></li>
-              <li><Link href="/shop?category=appliances">Washing Machines</Link></li>
-              <li><Link href="/shop?category=accessories">Audio & Wearables</Link></li>
-            </ul>
-          </div>
-
-          {/* Col 4: Store Info */}
+          {/* Col 3: Store Info */}
           <div className="footer-col">
             <h3>Store Information</h3>
-            <p className="footer-contact-item">
-              <i className="fa-solid fa-location-dot"></i>
+            <p className="footer-contact-item flex flex-row justify-center items-center gap-3">
+              <i className="fa-solid fa-location-dot text-xl"></i>
               <span>Omega 1, Commercial Belt, Greater Noida, Uttar Pradesh, PIN - 201308</span>
             </p>
-            <p className="footer-contact-item">
-              <i className="fa-solid fa-phone"></i>
+            <p className="footer-contact-item  flex flex-row items-center gap-3">
+              <i className="fa-solid fa-phone  text-xl"></i>
               <span>+91 98765 43210</span>
             </p>
-            <p className="footer-contact-item">
-              <i className="fa-solid fa-envelope"></i>
+            <p className="footer-contact-item  flex flex-row  items-center gap-3">
+              <i className="fa-solid fa-envelope text-xl"></i>
               <span>support@btsalesindia.com</span>
             </p>
-            <p className="footer-contact-item">
-              <i className="fa-solid fa-clock"></i>
+            <p className="footer-contact-item  flex flex-row items-center gap-3">
+              <i className="fa-solid fa-clock text-xl"></i>
               <span>Mon - Sun: 10:00 AM - 9:00 PM</span>
             </p>
           </div>

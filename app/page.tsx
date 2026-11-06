@@ -22,7 +22,7 @@ export default function HomePage() {
               <i className="fa-solid fa-bolt" style={{ marginRight: '6px' }}></i>
               Official Dealer • Greater Noida
             </span>
-            <h1 className="hero-title">
+            <h1 className="hero-title text-white">
               Next-Gen Tech & Premium Home Living.
             </h1>
             <p className="hero-desc">
@@ -33,8 +33,8 @@ export default function HomePage() {
               <Link href="/shop" className="btn btn-primary">
                 Shop Full Catalog <i className="fa-solid fa-arrow-right" style={{ marginLeft: '8px' }}></i>
               </Link>
-              <Link href="/services" className="btn btn-outline">
-                Book Repairs & Exchange
+              <Link href="/contact" className="btn btn-outline text-white">
+                Ask About Repairs & Exchange
               </Link>
             </div>
             <div className="hero-perks">
@@ -82,15 +82,12 @@ export default function HomePage() {
       </section>
 
       {/* Featured Categories Grid */}
-      <section className="categories-section container">
+      <section id="categories" className="categories-section container">
         <div className="section-header">
           <div className="section-title">
             <h2>Explore Core Categories</h2>
             <p>Select a category to view authorized stock and best regional pricing</p>
           </div>
-          <Link href="/shop" className="section-link">
-            All Products <i className="fa-solid fa-arrow-right"></i>
-          </Link>
         </div>
 
         <div className="category-cards-grid">
@@ -212,18 +209,15 @@ export default function HomePage() {
       </section>
 
       {/* Best Sellers Section */}
-      <section className="container" style={{ padding: '60px 0' }}>
+      <section id="best-sellers" className="container best-sellers-section">
         <div className="section-header">
           <div className="section-title">
             <h2>Best Sellers</h2>
             <p>Our top-rated products handpicked for you</p>
           </div>
-          <Link href="/shop" className="section-link">
-            View All <i className="fa-solid fa-arrow-right"></i>
-          </Link>
         </div>
 
-        <div className="product-grid">
+        <div className="product-grid best-sellers-grid">
           {bestSellers.map((product) => (
             <ProductCard
               key={product.id}
@@ -246,8 +240,8 @@ export default function HomePage() {
               for your old gadgets across Greater Noida and Noida.
             </p>
             <div className="promo-buttons">
-              <Link href="/services" className="btn btn-primary">
-                Book a Repair / Exchange
+              <Link href="/contact" className="btn btn-primary">
+                Contact Us About Repairs
               </Link>
               <Link href="/contact" className="btn btn-outline" style={{ borderColor: '#ffffff', color: '#ffffff' }}>
                 Visit Store

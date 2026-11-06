@@ -101,7 +101,7 @@ function ShopContent() {
   }, [search, selectedCategories, selectedBrands, maxPrice, sortBy]);
 
   return (
-    <div className="container" style={{ padding: '40px 0 80px' }}>
+    <div className="container page-shell">
       {/* Breadcrumbs / Page Header */}
       <div style={{ marginBottom: '32px' }}>
         <h1 style={{ fontSize: '28px', fontWeight: 800, marginBottom: '6px' }}>Store Catalog</h1>
@@ -254,7 +254,7 @@ function ShopContent() {
 
 export default function ShopPage() {
   return (
-    <Suspense fallback={<div className="container" style={{ padding: '60px 0', textAlign: 'center' }}>Loading Catalog...</div>}>
+    <Suspense fallback={<div className="container loading-state">Loading Catalog...</div>}>
       <ShopContent />
     </Suspense>
   );

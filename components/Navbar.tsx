@@ -2,33 +2,16 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { usePathname, useRouter } from 'next/navigation';
-import { useCart } from '@/context/CartContext';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
   const pathname = usePathname();
-  const router = useRouter();
-  const { totalItems, setIsCartOpen } = useCart();
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const handleSearchSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      router.push(`/shop?search=${encodeURIComponent(searchQuery.trim())}`);
-      setIsSearchOpen(false);
-      setSearchQuery('');
-    }
-  };
 
   const navLinks = [
     { label: 'Home', href: '/' },
-    { label: 'Mobile', href: '/shop?category=phones' },
-    { label: 'Home Appliances', href: '/shop?category=appliances' },
-    { label: 'Accessories', href: '/shop?category=accessories' },
-    { label: 'Services & Repairs', href: '/services' },
+    { label: 'Categories', href: '/#categories' },
+    { label: 'Best Sellers', href: '/#best-sellers' },
     { label: 'Contact Us', href: '/contact' }
   ];
 
@@ -37,7 +20,7 @@ export default function Navbar() {
       {/* Top Banner */}
       <div className="top-banner">
         <div className="container top-banner-content">
-          <div className="top-banner-left">
+          <div className="top-banner-left flex items-center justify-between w-full">
             <span>
               <i className="fa-solid fa-location-dot" style={{ marginRight: '6px' }}></i>
               Omega 1, Commercial Belt, Greater Noida, Uttar Pradesh
@@ -48,7 +31,7 @@ export default function Navbar() {
               +91 98765 43210
             </span>
           </div>
-          <div className="top-banner-right">
+          <div className="top-banner-right text-white">
             <span>Authorized Dealer for Apple, Samsung, OnePlus & LG</span>
           </div>
         </div>
@@ -86,24 +69,17 @@ export default function Navbar() {
 
           {/* Header Action Buttons */}
           <div className="header-actions">
-            {/* Search Toggle */}
-            <button
-              className="action-btn"
-              onClick={() => setIsSearchOpen(!isSearchOpen)}
-              aria-label="Search"
+            <a
+              className="whatsapp-header-link"
+              href="https://wa.me/919876543210"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Chat with BT Sales on WhatsApp"
+              title="Chat on WhatsApp"
             >
-              <i className="fa-solid fa-magnifying-glass"></i>
-            </button>
-
-            {/* Shopping Cart Button */}
-            <button
-              className="action-btn cart-btn"
-              onClick={() => setIsCartOpen(true)}
-              aria-label="Shopping Cart"
-            >
-              <i className="fa-solid fa-bag-shopping"></i>
-              {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
-            </button>
+              <i className="fa-brands fa-whatsapp" aria-hidden="true"></i>
+              <span>WhatsApp</span>
+            </a>
 
             {/* Mobile Hamburger Toggle */}
             <button
@@ -115,26 +91,6 @@ export default function Navbar() {
             </button>
           </div>
         </div>
-
-        {/* Search Bar Dropdown */}
-        {isSearchOpen && (
-          <div className="search-bar-dropdown">
-            <div className="container">
-              <form onSubmit={handleSearchSubmit} className="search-form">
-                <input
-                  type="text"
-                  placeholder="Search smartphones, TVs, refrigerators, audio, accessories..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  autoFocus
-                />
-                <button type="submit" className="search-submit-btn">
-                  Search
-                </button>
-              </form>
-            </div>
-          </div>
-        )}
 
         {/* Mobile Navigation Drawer */}
         {isMobileMenuOpen && (
