@@ -54,11 +54,11 @@ export default function Footer() {
             <h3>Store Information</h3>
             <p className="footer-contact-item flex flex-row justify-center items-center gap-3">
               <i className="fa-solid fa-location-dot text-xl"></i>
-              <span>Omega 1, Commercial Belt, Greater Noida, Uttar Pradesh, PIN - 201308</span>
+              <span>Sector 17A Shop No 02 Harveer Market Kanarsi bus stop Greater Noida (203202 UP), PIN - 201308</span>
             </p>
             <p className="footer-contact-item  flex flex-row items-center gap-3">
               <i className="fa-solid fa-phone  text-xl"></i>
-              <span>+91 98765 43210</span>
+              <span>+91 97191 95200, +91 8449390004</span>
             </p>
             <p className="footer-contact-item  flex flex-row  items-center gap-3">
               <i className="fa-solid fa-envelope text-xl"></i>

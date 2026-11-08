@@ -57,8 +57,8 @@ Open `data/products.ts`:
 
 ### 2. Updating Store Contact & Address
 Open `components/Navbar.tsx` and `components/Footer.tsx` to update:
-- Store address: *Omega 1, Commercial Belt, Greater Noida, Uttar Pradesh*
-- Phone numbers: *+91 98765 43210*
+- Store address: *Sector 17A Shop No 02 Harveer Market Kanarsi bus stop Greater Noida (203202 UP)*
+- Phone numbers: *+91 97191 95200*
 - Email: *support@btsalesindia.com*
 - Store hours: *Mon - Sun: 10:00 AM - 9:00 PM*
 

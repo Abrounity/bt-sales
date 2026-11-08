@@ -10,6 +10,7 @@ export default function Navbar() {
 
   const navLinks = [
     { label: 'Home', href: '/' },
+    { label: 'All Products', href: '/shop' },
     { label: 'Categories', href: '/#categories' },
     { label: 'Best Sellers', href: '/#best-sellers' },
     { label: 'Contact Us', href: '/contact' }
@@ -23,12 +24,12 @@ export default function Navbar() {
           <div className="top-banner-left flex items-center justify-between w-full">
             <span>
               <i className="fa-solid fa-location-dot" style={{ marginRight: '6px' }}></i>
-              Omega 1, Commercial Belt, Greater Noida, Uttar Pradesh
+              Sector 17A Shop No 02 Harveer Market Kanarsi bus stop Greater Noida (203202 UP)
             </span>
             <span className="banner-divider">|</span>
             <span>
               <i className="fa-solid fa-phone" style={{ marginRight: '6px' }}></i>
-              +91 98765 43210
+              +91 97191 95200
             </span>
           </div>
           <div className="top-banner-right text-white">

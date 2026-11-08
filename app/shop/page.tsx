@@ -230,7 +230,7 @@ function ShopContent() {
               </button>
             </div>
           ) : (
-            <div className="product-grid">
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5 xl:grid-cols-4">
               {filteredProducts.map((p) => (
                 <ProductCard
                   key={p.id}

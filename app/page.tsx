@@ -1,90 +1,128 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { products, Product } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
 import ProductModal from '@/components/ProductModal';
 
+const heroImages = [
+  {
+    src: '/images/banner_1.webp',
+    alt: 'Smartphone featured in a premium product banner',
+  },
+  {
+    src: '/images/banner_2.webp',
+    alt: 'Modern smartphone showcasing its full-screen display',
+  },
+  {
+    src: '/images/banner_3.webp',
+    alt: 'Premium laptop for work, creativity, and entertainment',
+  },
+];
+
 export default function HomePage() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [activeHeroImage, setActiveHeroImage] = useState(0);
 
   // Take top 4 products for homepage best sellers
   const bestSellers = products.slice(0, 4);
 
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setActiveHeroImage((current) => (current + 1) % heroImages.length);
+    }, 5000);
+
+    return () => window.clearInterval(intervalId);
+  }, []);
+
   return (
     <>
-      {/* Hero Section */}
-      <section className="hero-section">
-        <div className="container hero-grid">
-          <div className="hero-content">
-            <span className="hero-tag">
-              <i className="fa-solid fa-bolt" style={{ marginRight: '6px' }}></i>
-              Official Dealer • Greater Noida
-            </span>
-            <h1 className="hero-title text-white">
-              Next-Gen Tech & Premium Home Living.
-            </h1>
-            <p className="hero-desc">
-              Experience the latest Apple iPhones, flagship Samsung devices, AI Smart TVs,
-              and intelligent home appliances with zero-down payment EMI and doorstep service.
-            </p>
-            <div className="hero-cta">
-              <Link href="/shop" className="btn btn-primary">
-                Shop Full Catalog <i className="fa-solid fa-arrow-right" style={{ marginLeft: '8px' }}></i>
-              </Link>
-              <Link href="/contact" className="btn btn-outline text-white">
-                Ask About Repairs & Exchange
-              </Link>
-            </div>
-            <div className="hero-perks">
-              <div className="perk-item">
-                <i className="fa-solid fa-shield-check"></i>
-                <span>100% Brand Warranty</span>
-              </div>
-              <div className="perk-item">
-                <i className="fa-solid fa-truck-fast"></i>
-                <span>Same Day Delivery</span>
-              </div>
-              <div className="perk-item">
-                <i className="fa-solid fa-credit-card"></i>
-                <span>No-Cost EMI Options</span>
-              </div>
-            </div>
-          </div>
+      {/* Hero Banner Slider */}
+      <section className="hero-section w-full">
+  <div
+    className="relative w-full overflow-hidden"
+    role="region"
+    aria-roledescription="carousel"
+    aria-label="Featured product banners"
+  >
+    {heroImages.map((image, index) => (
+      <div
+        key={image.src}
+        className={`w-full transition-opacity duration-700 ease-in-out ${
+          index === activeHeroImage
+            ? "relative opacity-100 visible"
+            : "absolute inset-0 opacity-0 invisible"
+        }`}
+        aria-hidden={index !== activeHeroImage}
+      >
+        <img
+          src={image.src}
+          alt={image.alt}
+          className="block w-full h-auto object-cover"
+        />
+      </div>
+    ))}
 
-          <div className="hero-visual">
-            <div className="hero-card-featured">
-              <div className="featured-badge">Featured Flagship</div>
-              <div className="featured-image">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="100%" height="100%">
-                  <rect x="25" y="10" width="50" height="100" rx="8" fill="#0f172a" stroke="#d92323" strokeWidth="2" />
-                  <rect x="28" y="15" width="44" height="90" rx="4" fill="#1e293b" />
-                  <circle cx="50" cy="98" r="3" fill="#64748b" />
-                  <rect x="42" y="18" width="16" height="4" rx="2" fill="#64748b" />
-                  <path d="M30 40 L70 40 M30 60 L60 60 M30 80 L50 80" stroke="#d92323" strokeWidth="2" strokeLinecap="round" opacity="0.8" />
-                  <circle cx="50" cy="50" r="10" fill="#d92323" opacity="0.3" />
-                </svg>
-              </div>
-              <div className="featured-info">
-                <h3>iPhone 15 Pro & S24 Ultra</h3>
-                <p>Titanium builds, Pro camera arrays & AI features</p>
-                <div className="featured-pricing">
-                  <span className="featured-price">From ₹39,999</span>
-                  <Link href="/shop?category=phones" className="featured-link">
-                    Explore Flagships <i className="fa-solid fa-chevron-right"></i>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    {/* Previous Button */}
+    {/* <button
+      type="button"
+      onClick={() =>
+        setActiveHeroImage(
+          (current) =>
+            (current - 1 + heroImages.length) % heroImages.length
+        )
+      }
+      className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 z-10 
+      bg-black/40 hover:bg-black/70 text-white 
+      w-9 h-9 md:w-11 md:h-11 rounded-full 
+      flex items-center justify-center transition-all"
+      aria-label="Previous banner"
+    >
+      <i className="fa-solid fa-chevron-left"></i>
+    </button> */}
+
+    {/* Next Button */}
+    {/* <button
+      type="button"
+      onClick={() =>
+        setActiveHeroImage(
+          (current) => (current + 1) % heroImages.length
+        )
+      }
+      className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 z-10 
+      bg-black/40 hover:bg-black/70 text-white 
+      w-9 h-9 md:w-11 md:h-11 rounded-full 
+      flex items-center justify-center transition-all"
+      aria-label="Next banner"
+    >
+      <i className="fa-solid fa-chevron-right"></i>
+    </button> */}
+
+    {/* Dots */}
+    <div className="absolute bottom-3 md:bottom-5 left-1/2 
+    -translate-x-1/2 z-10 flex items-center gap-2">
+      {heroImages.map((image, index) => (
+        <button
+          key={image.src}
+          type="button"
+          onClick={() => setActiveHeroImage(index)}
+          className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+            index === activeHeroImage
+              ? "w-7 bg-white"
+              : "w-2.5 bg-white/60 hover:bg-white"
+          }`}
+          aria-label={`Show banner ${index + 1}`}
+        />
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Featured Categories Grid */}
       <section id="categories" className="categories-section container">
-        <div className="section-header">
-          <div className="section-title">
+        <div className="section-header"  style={{ textAlign: 'center', marginBottom: '32px' }}>
+          <div className="section-title" style={{ margin: '0 auto' }}>
             <h2>Explore Core Categories</h2>
             <p>Select a category to view authorized stock and best regional pricing</p>
           </div>
@@ -98,40 +136,25 @@ export default function HomePage() {
             <span className="cat-cta">Shop Devices &rarr;</span>
           </Link>
 
-          <Link href="/shop?category=appliances" className="cat-card">
-            <div className="cat-icon"><i className="fa-solid fa-tv"></i></div>
-            <h3>Smart 4K & OLED TVs</h3>
-            <p>LG, Samsung, Sony Bravia cinema screens</p>
-            <span className="cat-cta">Shop TVs &rarr;</span>
-          </Link>
+      
 
-          <Link href="/shop?category=appliances" className="cat-card">
-            <div className="cat-icon"><i className="fa-solid fa-snowflake"></i></div>
-            <h3>Inverter Refrigerators</h3>
-            <p>Double Door, Side-by-Side & French Door</p>
-            <span className="cat-cta">Shop Cooling &rarr;</span>
-          </Link>
+       
 
           <Link href="/shop?category=appliances" className="cat-card">
             <div className="cat-icon"><i className="fa-solid fa-soap"></i></div>
-            <h3>Washing Machines</h3>
+            <h3>Home Appliances</h3>
             <p>Bosch, LG, Samsung front & top loaders</p>
-            <span className="cat-cta">Shop Washers &rarr;</span>
+            <span className="cat-cta">Shop Home Appliances &rarr;</span>
           </Link>
 
           <Link href="/shop?category=accessories" className="cat-card">
             <div className="cat-icon"><i className="fa-solid fa-headphones"></i></div>
-            <h3>Audio & Earbuds</h3>
+            <h3>Accessories </h3>
             <p>AirPods, Sony XM5, Bose & Studio Gear</p>
-            <span className="cat-cta">Shop Audio &rarr;</span>
+            <span className="cat-cta">Shop Accessories &rarr;</span>
           </Link>
 
-          <Link href="/shop?category=accessories" className="cat-card">
-            <div className="cat-icon"><i className="fa-solid fa-clock"></i></div>
-            <h3>Smartwatches & Bands</h3>
-            <p>Galaxy Watch, Apple Watch & fitness trackers</p>
-            <span className="cat-cta">Shop Wearables &rarr;</span>
-          </Link>
+          
         </div>
       </section>
 
@@ -210,8 +233,8 @@ export default function HomePage() {
 
       {/* Best Sellers Section */}
       <section id="best-sellers" className="container best-sellers-section">
-        <div className="section-header">
-          <div className="section-title">
+        <div className="section-header" style={{ textAlign: 'center', marginBottom: '32px' }}>
+          <div className="section-title" style={{ margin: '0 auto' }}>
             <h2>Best Sellers</h2>
             <p>Our top-rated products handpicked for you</p>
           </div>
