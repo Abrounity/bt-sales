@@ -84,7 +84,7 @@ function ContactContent() {
               <div>
                 <h4 style={{ fontSize: '14px', fontWeight: 700, margin: '0 0 4px' }}>Direct Phone & WhatsApp</h4>
                 <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
-                  +91 98765 43210 / +91 98765 43211
+                  +91 97191 95200 / +91 84493 90004
                 </p>
               </div>
             </div>
@@ -114,18 +114,39 @@ function ContactContent() {
             </div>
           </div>
 
-          {/* Interactive Map Visual */}
-          <div style={{ borderRadius: '16px', overflow: 'hidden', border: '1px solid var(--color-border)', height: '220px', background: '#0f172a', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <div style={{ textAlign: 'center', color: '#ffffff', zIndex: 2, padding: '20px' }}>
-              <div style={{ width: '48px', height: '48px', margin: '0 auto 10px', background: 'var(--color-brand)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px' }}>
-                <i className="fa-solid fa-store"></i>
-              </div>
-              <h4 style={{ fontSize: '16px', fontWeight: 700, margin: '0 0 4px' }}>BT Sales Store, Greater Noida</h4>
-              <p style={{ fontSize: '12px', color: '#94a3b8' }}>Commercial Belt, Omega 1, Greater Noida, UP</p>
-            </div>
-            {/* Background grid visual */}
-            <div style={{ position: 'absolute', inset: 0, opacity: 0.15, backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '16px 16px' }}></div>
+          <div
+            style={{
+              borderRadius: '16px',
+              overflow: 'hidden',
+              border: '1px solid var(--color-border)',
+              height: '320px',
+            }}
+          >
+            <iframe
+              title="Map showing BT Sales in Omega 1, Greater Noida"
+              src="https://maps.google.com/maps?q=BT%20Sales%20Store%2C%20Commercial%20Belt%2C%20Omega%201%2C%20Greater%20Noida%2C%20Uttar%20Pradesh%20201308&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0, display: 'block' }}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
           </div>
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=BT%20Sales%20Store%2C%20Commercial%20Belt%2C%20Omega%201%2C%20Greater%20Noida%2C%20Uttar%20Pradesh%20201308"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-block',
+              marginTop: '10px',
+              color: 'var(--color-brand)',
+              fontSize: '13px',
+              fontWeight: 600,
+            }}
+          >
+            Open in Google Maps
+          </a>
         </div>
 
         {/* Right Column: Contact Inquiry Form */}

@@ -74,7 +74,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
       >
         <button
           type="button"
-          className="absolute right-3 top-3 z-20 grid size-10 place-items-center rounded-full bg-white text-xl text-[#1f2937] shadow-[0_2px_12px_rgba(15,23,42,0.16)] transition hover:rotate-90 hover:bg-[#f3f4f6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#d92323] sm:right-5 sm:top-5 sm:size-12"
+          className="absolute right-3 top-3 z-20 grid size-10 place-items-center cursor-pointer rounded-full bg-white text-xl text-[#1f2937] shadow-[0_2px_12px_rgba(15,23,42,0.16)] transition hover:rotate-90 hover:bg-[#f3f4f6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#d92323] sm:right-5 sm:top-5 sm:size-12"
           onClick={onClose}
           aria-label="Close product details"
         >

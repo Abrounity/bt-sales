@@ -36,7 +36,7 @@ function ShopContent() {
   const categories = [
     { id: 'phones', label: 'Smartphones & Tablets' },
     { id: 'appliances', label: 'Home Appliances' },
-    { id: 'accessories', label: 'Audio & Accessories' }
+    { id: 'accessories', label: 'Accessories' }
   ];
 
   const brands = ['Apple', 'Samsung', 'OnePlus', 'Sony', 'Bosch', 'LG', 'Xiaomi', 'Vivo'];

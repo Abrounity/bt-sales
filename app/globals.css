@@ -753,6 +753,27 @@ header {
 }
 
 /* Product Badges */
+.product-card-meta {
+  display: flex;
+  min-width: 0;
+  min-height: 26px;
+  margin-bottom: 8px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.product-brand {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-align: right;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
 .product-badge-list {
   position: absolute;
   top: 12px;
@@ -763,12 +784,18 @@ header {
   z-index: 10;
 }
 .product-badge {
+  flex-shrink: 0;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(217, 35, 35, 0.1);
+  color: var(--color-brand);
   font-size: 9px;
   font-weight: 700;
   text-transform: uppercase;
   padding: 3px 8px;
-  border-radius: var(--border-radius-sm);
-  color: var(--color-white);
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .product-badge.sale {
   background-color: var(--color-brand);
@@ -2589,28 +2616,7 @@ footer {
 }
 
 .best-sellers-grid .product-badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  z-index: 1;
-  max-width: calc(100% - 24px);
-  overflow: hidden;
-  border-radius: 999px;
-  background: rgba(217, 35, 35, 0.1);
-  color: var(--color-brand);
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.best-sellers-grid .product-brand {
-  overflow: hidden;
-  color: var(--text-muted);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-overflow: ellipsis;
-  text-transform: uppercase;
-  white-space: nowrap;
+  max-width: calc(100% - 8px);
 }
 
 .best-sellers-grid .product-image {
@@ -2982,8 +2988,11 @@ footer {
   justify-content: center;
 }
 
-.spotlight-visual svg {
+.spotlight-visual svg,
+.spotlight-visual img {
   max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 .services-promo-section {

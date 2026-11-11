@@ -25,8 +25,14 @@ export default function HomePage() {
   const [activeHeroImage, setActiveHeroImage] = useState(0);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
-  // Take top 4 products for homepage best sellers
-  const bestSellers = products.slice(0, 4);
+  const spotlightProductIds = ['p13', 'p4', 'p7'];
+  const bestSellerProductIds = ['p13', 'p15', 'p4', 'p7'];
+  const spotlightProducts = spotlightProductIds
+    .map((id) => products.find((product) => product.id === id))
+    .filter((product): product is Product => product !== undefined);
+  const bestSellers = bestSellerProductIds
+    .map((id) => products.find((product) => product.id === id))
+    .filter((product): product is Product => product !== undefined);
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
@@ -112,7 +118,7 @@ export default function HomePage() {
 
           <Link href="/shop?category=accessories" className="cat-card">
             <div className="cat-icon"><i className="fa-solid fa-headphones"></i></div>
-            <h3>Accessories </h3>
+            <h3>Accessories</h3>
             <p>AirPods, Sony XM5, Bose & Studio Gear</p>
             <span className="cat-cta">Shop Accessories &rarr;</span>
           </Link>
@@ -121,75 +127,39 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Trending Devices Spotlight (Centered without heavy side gaps) */}
+      {/* Trending Devices Spotlight */}
       <section className="spotlight-section">
         <div className="container">
           <div className="section-header" style={{ textAlign: 'center', marginBottom: '32px' }}>
             <div className="section-title" style={{ margin: '0 auto' }}>
               <h2>Trending Flagship Spotlight</h2>
-              <p>Top flagship picks engineered for benchmark performance</p>
+              <p>Explore our latest flagship listings</p>
             </div>
           </div>
 
           <div className="spotlight-grid">
-            <div className="spotlight-card">
-              <div className="spotlight-badge">Apple Flagship</div>
-              <div className="spotlight-visual">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="100%" height="100%">
-                  <rect x="25" y="10" width="50" height="100" rx="8" fill="#1e293b" stroke="#64748b" strokeWidth="2" />
-                  <rect x="28" y="15" width="44" height="90" rx="4" fill="#0f172a" />
-                  <circle cx="50" cy="98" r="3" fill="#334155" />
-                  <rect x="42" y="18" width="16" height="4" rx="2" fill="#334155" />
-                  <path d="M30 40 L70 40 M30 60 L60 60" stroke="#a3a3a3" strokeWidth="2" strokeLinecap="round" />
-                </svg>
+            {spotlightProducts.map((product) => (
+              <div className="spotlight-card" key={product.id}>
+                <div className="spotlight-badge">{product.badge ?? 'Featured'}</div>
+                <div className="spotlight-visual">
+                  <img src={product.image} alt={product.title} />
+                </div>
+                <div className="spotlight-info">
+                  <h3>{product.title}</h3>
+                  <p>{product.description}</p>
+                  <div className="spotlight-price">
+                    ₹{product.price.toLocaleString('en-IN')}
+                  </div>
+                  <Link
+                    href={`/shop?search=${encodeURIComponent(product.title)}`}
+                    className="btn btn-outline"
+                    style={{ marginTop: '12px', width: '100%', textAlign: 'center' }}
+                  >
+                    View Product
+                  </Link>
+                </div>
               </div>
-              <div className="spotlight-info">
-                <h3>iPhone 15 Pro</h3>
-                <p>Aerospace-grade titanium design with A17 Pro chip & 48MP camera.</p>
-                <div className="spotlight-price">₹1,34,900</div>
-                <Link href="/shop?brand=Apple" className="btn btn-outline" style={{ marginTop: '12px', width: '100%', textAlign: 'center' }}>
-                  View Apple Store
-                </Link>
-              </div>
-            </div>
-
-            <div className="spotlight-card">
-              <div className="spotlight-badge" style={{ backgroundColor: '#0f4c81' }}>Galaxy AI</div>
-              <div className="spotlight-visual">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="100%" height="100%">
-                  <rect x="25" y="10" width="50" height="100" rx="6" fill="#0f172a" stroke="#0f4c81" strokeWidth="2" />
-                  <rect x="28" y="14" width="44" height="92" rx="3" fill="#1e293b" />
-                  <circle cx="50" cy="50" r="14" fill="#0f4c81" opacity="0.3" />
-                </svg>
-              </div>
-              <div className="spotlight-info">
-                <h3>Galaxy S24 Ultra</h3>
-                <p>Built-in S-Pen, 200MP Quad Zoom & revolutionary Galaxy AI features.</p>
-                <div className="spotlight-price">₹1,29,999</div>
-                <Link href="/shop?brand=Samsung" className="btn btn-outline" style={{ marginTop: '12px', width: '100%', textAlign: 'center' }}>
-                  View Samsung Store
-                </Link>
-              </div>
-            </div>
-
-            <div className="spotlight-card">
-              <div className="spotlight-badge" style={{ backgroundColor: '#eb0028' }}>Smooth Power</div>
-              <div className="spotlight-visual">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="100%" height="100%">
-                  <rect x="25" y="10" width="50" height="100" rx="8" fill="#1e293b" stroke="#eb0028" strokeWidth="2" />
-                  <rect x="28" y="15" width="44" height="90" rx="4" fill="#0f172a" />
-                  <path d="M30 40 L70 40 M30 65 L60 65" stroke="#eb0028" strokeWidth="2" strokeLinecap="round" />
-                </svg>
-              </div>
-              <div className="spotlight-info">
-                <h3>OnePlus 12R 5G</h3>
-                <p>Snapdragon 8 Gen 2 powerhouse with 5500 mAh battery & 100W charging.</p>
-                <div className="spotlight-price">₹39,999</div>
-                <Link href="/shop?brand=OnePlus" className="btn btn-outline" style={{ marginTop: '12px', width: '100%', textAlign: 'center' }}>
-                  View OnePlus Store
-                </Link>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>

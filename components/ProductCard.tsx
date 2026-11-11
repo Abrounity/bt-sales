@@ -14,8 +14,10 @@ export default function ProductCard({ product, onOpenDetails }: ProductCardProps
 
   return (
     <div className="product-card">
-      {product.badge && <span className="product-badge">{product.badge}</span>}
-      <span className="product-brand">{product.brand}</span>
+      <div className="product-card-meta">
+        {product.badge && <span className="product-badge">{product.badge}</span>}
+        <span className="product-brand">{product.brand}</span>
+      </div>
 
       <button
         type="button"

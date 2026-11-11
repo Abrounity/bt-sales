@@ -192,7 +192,7 @@ export const products: Product[] = [
     rating: 4.9,
     reviews: 54,
     badge: 'Top Pick',
-    image: getProductSVG('tv', '#a50034'),
+     image: '/images/products/tv.webp',
     specs: {
       'Display': '55" OLED 4K UHD',
       'Processor': 'α9 AI Processor Gen6',
@@ -249,7 +249,7 @@ export const products: Product[] = [
     rating: 4.8,
     reviews: 145,
     badge: 'Hot',
-    image: getProductSVG('headphone', '#8e8e93'),
+    image: '/images/products/airPods.webp',
     specs: {
       'Chip': 'Apple H2 Chip',
       'ANC': 'Up to 2x Active Noise Cancellation',
@@ -352,5 +352,62 @@ export const products: Product[] = [
       'Battery': '5000 mAh slim form-factor'
     },
     description: 'Co-engineered with ZEISS, the V30 Pro brings professional-grade studio lighting and portrait quality straight to your pockets with Aura Light technology.'
+  },
+  {
+    id: 'p13',
+    title: 'Apple iPhone 18 Pro',
+    category: 'phones',
+    brand: 'Apple',
+    price: 149900,
+    originalPrice: 149900,
+    rating: 0,
+    reviews: 0,
+    badge: 'Best Seller',
+    image: '/images/products/iphone18.webp',
+    specs: {
+      'Processor': 'Apple Pro-series chip',
+      'Camera': 'Pro camera system',
+      'Display': 'Super Retina XDR display',
+      'Availability': 'Confirm current model and stock'
+    },
+    description: 'Estimated listing for the iPhone 18 Pro. Price and specifications are indicative; please confirm current availability and details before purchase.'
+  },
+  {
+    id: 'p14',
+    title: 'Apple iPhone Duo',
+    category: 'phones',
+    brand: 'Apple',
+    price: 199900,
+    originalPrice: 199900,
+    rating: 0,
+    reviews: 0,
+    badge: 'Best Seller',
+    image: getProductSVG('iphone', '#a3a3a3'),
+    specs: {
+      'Processor': 'Please confirm model specifications',
+      'Camera': 'Please confirm model specifications',
+      'Display': 'Please confirm model specifications',
+      'Availability': 'Confirm model and stock'
+    },
+    description: 'Estimated listing for iPhone Duo. Product identity, price, and specifications need confirmation before purchase.'
+  },
+  {
+    id: 'p15',
+    title: 'Samsung Galaxy S25 Ultra',
+    category: 'phones',
+    brand: 'Samsung',
+    price: 129999,
+    originalPrice: 129999,
+    rating: 0,
+    reviews: 0,
+    badge: 'Best Seller',
+    image: '/images/products/samsung.webp',
+    specs: {
+      'Processor': 'Snapdragon 8 Elite for Galaxy',
+      'Camera': '200MP main camera',
+      'Display': '6.9-inch QHD+ Dynamic AMOLED 2X',
+      'Battery': '5000 mAh'
+    },
+    description: 'Estimated listing for the Samsung Galaxy S25 Ultra. Price is indicative; please confirm current pricing and availability before purchase.'
   }
 ];
