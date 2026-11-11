@@ -22,8 +22,8 @@ const heroImages = [
 ];
 
 export default function HomePage() {
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [activeHeroImage, setActiveHeroImage] = useState(0);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   // Take top 4 products for homepage best sellers
   const bestSellers = products.slice(0, 4);
@@ -64,42 +64,7 @@ export default function HomePage() {
       </div>
     ))}
 
-    {/* Previous Button */}
-    {/* <button
-      type="button"
-      onClick={() =>
-        setActiveHeroImage(
-          (current) =>
-            (current - 1 + heroImages.length) % heroImages.length
-        )
-      }
-      className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 z-10 
-      bg-black/40 hover:bg-black/70 text-white 
-      w-9 h-9 md:w-11 md:h-11 rounded-full 
-      flex items-center justify-center transition-all"
-      aria-label="Previous banner"
-    >
-      <i className="fa-solid fa-chevron-left"></i>
-    </button> */}
-
-    {/* Next Button */}
-    {/* <button
-      type="button"
-      onClick={() =>
-        setActiveHeroImage(
-          (current) => (current + 1) % heroImages.length
-        )
-      }
-      className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 z-10 
-      bg-black/40 hover:bg-black/70 text-white 
-      w-9 h-9 md:w-11 md:h-11 rounded-full 
-      flex items-center justify-center transition-all"
-      aria-label="Next banner"
-    >
-      <i className="fa-solid fa-chevron-right"></i>
-    </button> */}
-
-    {/* Dots */}
+    
     <div className="absolute bottom-3 md:bottom-5 left-1/2 
     -translate-x-1/2 z-10 flex items-center gap-2">
       {heroImages.map((image, index) => (
@@ -245,7 +210,7 @@ export default function HomePage() {
             <ProductCard
               key={product.id}
               product={product}
-              onOpenDetails={(p) => setSelectedProduct(p)}
+              onOpenDetails={setSelectedProduct}
             />
           ))}
         </div>
@@ -396,7 +361,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Product Quick Details Modal */}
       <ProductModal
         product={selectedProduct}
         onClose={() => setSelectedProduct(null)}

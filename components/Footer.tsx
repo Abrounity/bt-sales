@@ -29,9 +29,7 @@ export default function Footer() {
               <a href="https://instagram.com" target="_blank" rel="noreferrer" className="social-btn" aria-label="Instagram">
                 <i className="fa-brands fa-instagram"></i>
               </a>
-              <a href="https://x.com" target="_blank" rel="noreferrer" className="social-btn" aria-label="Twitter">
-                <i className="fa-brands fa-x-twitter"></i>
-              </a>
+          
               <a href="https://youtube.com" target="_blank" rel="noreferrer" className="social-btn" aria-label="YouTube">
                 <i className="fa-brands fa-youtube"></i>
               </a>

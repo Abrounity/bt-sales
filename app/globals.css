@@ -825,6 +825,36 @@ header {
   flex-direction: column;
   flex-grow: 1;
 }
+.product-card-title-row {
+  display: flex;
+  min-width: 0;
+  min-height: 42px;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.product-card-title-row .product-title {
+  flex: 1;
+  min-width: 0;
+  height: 36px;
+  margin-bottom: 0;
+}
+.product-card-price {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  padding-top: 1px;
+}
+.product-card-price .price-original {
+  font-size: 10px;
+}
+.product-card-price .price-current {
+  font-size: 14px;
+  white-space: nowrap;
+}
 .product-cat {
   font-size: 11px;
   text-transform: uppercase;
@@ -879,6 +909,27 @@ header {
   align-items: center;
   justify-content: space-between;
   gap: 8px;
+}
+.product-view-btn {
+  display: inline-flex;
+  min-height: 34px;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  border: 1px solid var(--color-brand);
+  border-radius: 999px;
+  background: var(--color-brand);
+  color: var(--color-white);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+.product-view-btn:hover {
+  background: var(--color-brand-hover);
+  border-color: var(--color-brand-hover);
 }
 .product-whatsapp-btn {
   display: inline-flex;
@@ -2594,6 +2645,15 @@ footer {
   height: 38px;
   margin-bottom: 10px;
   font-size: 14px;
+}
+
+.best-sellers-grid .product-card-title-row .product-title {
+  height: 36px;
+  margin-bottom: 0;
+}
+
+.best-sellers-grid .product-card-price .price-current {
+  font-size: clamp(12px, 1.1vw, 15px);
 }
 
 .best-sellers-grid .product-rating {

@@ -72,7 +72,7 @@ function ContactContent() {
               <div>
                 <h4 style={{ fontSize: '14px', fontWeight: 700, margin: '0 0 4px' }}>Store Address</h4>
                 <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
-                  Sector 17A Shop No 02 Harveer Market Kanarsi bus stop Greater Noida (203202 UP)
+                  Omega 1, Commercial Belt, Greater Noida, Uttar Pradesh, PIN - 201308, India
                 </p>
               </div>
             </div>
@@ -84,7 +84,7 @@ function ContactContent() {
               <div>
                 <h4 style={{ fontSize: '14px', fontWeight: 700, margin: '0 0 4px' }}>Direct Phone & WhatsApp</h4>
                 <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
-                  +91 97191 95200 / +91 98765 43211
+                  +91 98765 43210 / +91 98765 43211
                 </p>
               </div>
             </div>
@@ -166,7 +166,7 @@ function ContactContent() {
                   <input
                     type="tel"
                     required
-                    placeholder="+91 97191 95200"
+                    placeholder="+91 98765 43210"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     style={{ width: '100%', padding: '10px 14px', borderRadius: '8px', border: '1px solid var(--color-border)' }}

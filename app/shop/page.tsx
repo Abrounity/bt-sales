@@ -235,15 +235,13 @@ function ShopContent() {
                 <ProductCard
                   key={p.id}
                   product={p}
-                  onOpenDetails={(item) => setSelectedProduct(item)}
+                  onOpenDetails={setSelectedProduct}
                 />
               ))}
             </div>
           )}
         </section>
       </div>
-
-      {/* Product Details Modal */}
       <ProductModal
         product={selectedProduct}
         onClose={() => setSelectedProduct(null)}

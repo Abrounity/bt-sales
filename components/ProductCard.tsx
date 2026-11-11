@@ -17,22 +17,35 @@ export default function ProductCard({ product, onOpenDetails }: ProductCardProps
       {product.badge && <span className="product-badge">{product.badge}</span>}
       <span className="product-brand">{product.brand}</span>
 
-      <div
+      <button
+        type="button"
         className="product-image"
         onClick={() => onOpenDetails(product)}
-        style={{ cursor: 'pointer' }}
+        aria-label={`View ${product.title} details`}
       >
         <img src={product.image} alt={product.title} loading="lazy" />
-      </div>
+      </button>
 
       <div className="product-info">
-        <h3
-          className="product-title"
-          onClick={() => onOpenDetails(product)}
-          style={{ cursor: 'pointer' }}
-        >
-          {product.title}
-        </h3>
+        <div className="product-card-title-row">
+          <button
+            type="button"
+            className="product-title text-left"
+            onClick={() => onOpenDetails(product)}
+          >
+            {product.title}
+          </button>
+          <div className="product-card-price">
+            {product.originalPrice > product.price && (
+              <span className="price-original">
+                ₹{product.originalPrice.toLocaleString('en-IN')}
+              </span>
+            )}
+            <span className="price-current">
+              ₹{product.price.toLocaleString('en-IN')}
+            </span>
+          </div>
+        </div>
 
         <div className="product-rating">
           <div className="stars">
@@ -52,16 +65,14 @@ export default function ProductCard({ product, onOpenDetails }: ProductCardProps
 
         <div className="product-bottom">
           <div className="product-price-actions">
-            <div className="price-container">
-              {product.originalPrice > product.price && (
-                <span className="price-original">
-                  ₹{product.originalPrice.toLocaleString('en-IN')}
-                </span>
-              )}
-              <span className="price-current">
-                ₹{product.price.toLocaleString('en-IN')}
-              </span>
-            </div>
+            <button
+              type="button"
+              className="product-view-btn"
+              onClick={() => onOpenDetails(product)}
+              aria-label={`View ${product.title}`}
+            >
+              View Product
+            </button>
             <a
               className="product-whatsapp-btn"
               href={whatsappUrl}
