@@ -102,7 +102,6 @@ export default function HomePage() {
           </Link>
 
 
-       
 
           <Link href="/shop?category=appliances" className="cat-card">
             <div className="cat-icon"><i className="fa-solid fa-soap"></i></div>
