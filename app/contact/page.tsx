@@ -72,7 +72,7 @@ function ContactContent() {
               <div>
                 <h4 style={{ fontSize: '14px', fontWeight: 700, margin: '0 0 4px' }}>Store Address</h4>
                 <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
-                  Omega 1, Commercial Belt, Greater Noida, Uttar Pradesh, PIN - 201308, India
+                  Sector 17A Shop No 02 Harveer Market Kanarsi bus stop Greater Noida (203202 UP)
                 </p>
               </div>
             </div>
