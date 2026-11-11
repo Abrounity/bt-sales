@@ -19,12 +19,16 @@ export default function Navbar() {
   return (
     <>
       {/* Top Banner */}
-      <div className="top-banner">
+      {/* <div className="top-banner">
         <div className="container top-banner-content">
           <div className="top-banner-left flex items-center justify-between w-full">
-            <span>
+            <span className="md:block hidden">
               <i className="fa-solid fa-location-dot" style={{ marginRight: '6px' }}></i>
               Sector 17A Shop No 02 Harveer Market Kanarsi bus stop Greater Noida (203202 UP)
+            </span>
+             <span className="md:hidden block">
+              <i className="fa-solid fa-location-dot" style={{ marginRight: '6px' }}></i>
+              Greater Noida (203202 UP)
             </span>
             <span className="banner-divider">|</span>
             <span>
@@ -32,11 +36,45 @@ export default function Navbar() {
               +91 97191 95200
             </span>
           </div>
-          <div className="top-banner-right text-white">
+          <div className="top-banner-right text-white md:block hidden">
             <span>Authorized Dealer for Apple, Samsung, OnePlus & LG</span>
           </div>
         </div>
-      </div>
+      </div> */}
+
+
+      
+<div className="top-banner">
+  <div className="container top-banner-content">
+    <div className="top-banner-left !flex !w-full !justify-between items-center">
+
+      {/* Desktop Location */}
+      <span className="hidden md:!inline-flex items-center gap-2">
+        <i className="fa-solid fa-location-dot"></i>
+        Sector 17A Shop No 02 Harveer Market Kanarsi bus stop Greater Noida (203202 UP)
+      </span>
+
+      {/* Mobile Location */}
+      <span className="!inline-flex md:!hidden items-center gap-2">
+        <i className="fa-solid fa-location-dot"></i>
+        Greater Noida (203202 UP)
+      </span>
+
+      <span className="banner-divider">|</span>
+
+      {/* Phone */}
+      <span className="!inline-flex items-center gap-2">
+        <i className="fa-solid fa-phone"></i>
+        +91 97191 95200
+      </span>
+
+    </div>
+
+    <div className="top-banner-right hidden text-white md:block">
+      <span>Authorized Dealer for Apple, Samsung, OnePlus & LG</span>
+    </div>
+  </div>
+</div>
 
       {/* Main Header */}
       <header>
