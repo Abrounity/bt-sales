@@ -101,7 +101,6 @@ export default function HomePage() {
             <span className="cat-cta">Shop Devices &rarr;</span>
           </Link>
 
-      
 
        
 
